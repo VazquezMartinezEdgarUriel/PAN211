@@ -37,11 +37,15 @@ const personas = [
 ];
 
 const BuscarNombre = personas.find(persona => persona.nombre === "Luis");
+console.log("La persona con nombre",BuscarNombre);
+
 //Desicno que cada persona que se encuentra en la variable personas me de sus datos en lista
 console.log("\n Personas: ");
 personas.forEach(persona => {
     console.log(`Nombre: ${persona.nombre}, edad: ${persona.edad}`);
 });
+
+
 //Declaro la funcion y la desicno una variable donde se almacene la suma de las edades y lo inicializamos en 0 
 const Edades = personas.reduce((suma, persona) => suma + persona.edad, 0);
 console.log("La suma de las edades es:", Edades);
