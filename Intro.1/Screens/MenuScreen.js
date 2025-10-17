@@ -3,6 +3,11 @@ import React, { useState } from 'react'
 import BotonesScreen from './BotonesScreen';
 import ContadorScreen from './ContadorScreen';
 import { Button } from 'react-native-web';
+import TextScreen from './TextScreen';
+
+
+
+
 
 export default function MenuScreen() {
     const [screen, setScreen] = useState('Menu');
@@ -10,8 +15,10 @@ export default function MenuScreen() {
     switch (screen){
         case 'Contador':
             return <ContadorScreen/>;
-        case 'Botones':
+        case 'botones':
             return <BotonesScreen/>;
+        case 'TextInput':
+            return <TextScreen/>;
         case 'Menu':
         default:
             return (
@@ -20,6 +27,9 @@ export default function MenuScreen() {
                     <View style={styles.botones_1}> 
                         <Button onPress={() => setScreen('botones')} title='Botones' color='#000000ff'/>
                         <Button onPress={() => setScreen('Contador')} title='Contador' color='#000000ff'/>
+                        <Button onPress={() => setScreen('TextInput')} title='TextInput' color='#000000ff'/>
+                        <Button onPress={() => setScreen('imageBackgroung')} title='ImageBackgroung' color='#000000ff'/>
+                            
                     </View>
                     
                 </View>

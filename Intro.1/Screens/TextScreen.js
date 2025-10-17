@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native';
+import React, { useState } from 'react'; 
+import { View, Text, TextInput, Button, Alert, StyleSheet } from 'react-native'; 
 
 const TextScreen = () => {
   const [nombre, setNombre] = useState('');
@@ -54,3 +54,6 @@ const styles = StyleSheet.create({
 
 
 export default TextScreen;
+
+
+rnsc
