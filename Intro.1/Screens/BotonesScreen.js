@@ -10,6 +10,7 @@ export default function BotonesScreen() {
   return (
     <View style={[styles.container, {backgroundColor}]}>
       <Text style={[styles.texto, {color: textColor}]}>Estado: { prendido ? 'Prendido': 'Apagado'} </Text>  
+      
       <TouchableOpacity
         style={ styles.botonEncender}
         onPress={() => setPrendido(true)}> 
@@ -79,3 +80,5 @@ const styles = StyleSheet.create({
   },
 
 });
+
+

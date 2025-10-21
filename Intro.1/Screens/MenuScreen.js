@@ -1,12 +1,9 @@
-import { Text, StyleSheet, View, TouchableOpacity } from 'react-native'
+import { Text, StyleSheet, View, TouchableOpacity, Button } from 'react-native'
 import React, { useState } from 'react'
 import BotonesScreen from './BotonesScreen';
 import ContadorScreen from './ContadorScreen';
-import { Button } from 'react-native-web';
 import TextScreen from './TextScreen';
-
-
-
+import ImageBackgroung from './ImageBackgroung';
 
 
 export default function MenuScreen() {
@@ -19,6 +16,8 @@ export default function MenuScreen() {
             return <BotonesScreen/>;
         case 'TextInput':
             return <TextScreen/>;
+        case 'ImageBackgroung':
+            return <ImageBackgroung/>; 
         case 'Menu':
         default:
             return (
@@ -27,8 +26,8 @@ export default function MenuScreen() {
                     <View style={styles.botones_1}> 
                         <Button onPress={() => setScreen('botones')} title='Botones' color='#000000ff'/>
                         <Button onPress={() => setScreen('Contador')} title='Contador' color='#000000ff'/>
-                        <Button onPress={() => setScreen('TextInput')} title='TextInput' color='#000000ff'/>
-                        <Button onPress={() => setScreen('imageBackgroung')} title='ImageBackgroung' color='#000000ff'/>
+                        <Button onPress={() => setScreen('TextInput')} title='Text Input' color='#000000ff'/>
+                        <Button onPress={() => setScreen('ImageBackgroung')} title='imageBackgroung' color='#000000ff'/>
                             
                     </View>
                     
@@ -74,5 +73,5 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 18,
         fontWeight: '600'
-    }
+    },
 })
