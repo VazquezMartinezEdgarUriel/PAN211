@@ -4,7 +4,8 @@ import BotonesScreen from './BotonesScreen';
 import ContadorScreen from './ContadorScreen';
 import TextScreen from './TextScreen';
 import ImageBackgroung from './ImageBackgroung';
-
+import RepasoScreen from './RepasoScreen';
+import ScrollViewScreen from './ScrollViewScreen';
 
 export default function MenuScreen() {
     const [screen, setScreen] = useState('Menu');
@@ -18,6 +19,10 @@ export default function MenuScreen() {
             return <TextScreen/>;
         case 'ImageBackgroung':
             return <ImageBackgroung/>; 
+        case 'Repaso1':
+            return <RepasoScreen/>;
+        case 'ScollView':
+            return <ScrollViewScreen/>;    
         case 'Menu':
         default:
             return (
@@ -28,6 +33,8 @@ export default function MenuScreen() {
                         <Button onPress={() => setScreen('Contador')} title='Contador' color='#000000ff'/>
                         <Button onPress={() => setScreen('TextInput')} title='Text Input' color='#000000ff'/>
                         <Button onPress={() => setScreen('ImageBackgroung')} title='imageBackgroung' color='#000000ff'/>
+                        <Button onPress={() => setScreen('Repaso1')} title='repaso1' color='#000000ff'/>
+                        <Button onPress={() => setScreen('ScollView')} title='ScrollView' color='#000000ff'/>
                             
                     </View>
                     
