@@ -8,7 +8,7 @@ import RepasoScreen from './RepasoScreen';
 import ScrollViewScreen from './ScrollViewScreen';
 import ActivityIndicator from './ActivityIndicator';
 import FlatList_y_Section_List from './FlatList_y_Section_List';
-import Modal from './Modal';
+import ModalS from './ModalS';
 
 export default function MenuScreen() {
     const [screen, setScreen] = useState('Menu');
@@ -30,8 +30,8 @@ export default function MenuScreen() {
             return <ActivityIndicator/>;
         case 'FlatList_y_Section_List':
             return <FlatList_y_Section_List/>;
-        case 'Modal':
-            return <Modal/>;            
+        case 'Modal11':
+            return <ModalS/>;            
         case 'Menu':
         default:
             return (
@@ -46,7 +46,7 @@ export default function MenuScreen() {
                         <Button onPress={() => setScreen('ScollView')} title='ScrollView' color='#000000ff'/>
                         <Button onPress={() => setScreen('ActivityIndicator')} title='activity Indicator' color='#000000ff'/>
                         <Button onPress={() => setScreen('FlatList_y_Section_List')} title='flatList y Section List' color='#000000ff'/>
-                        <Button onPress={() => setScreen('Modal')} title='Modal' color='#000000ff'/>
+                        <Button onPress={() => setScreen('Modal11')} title='Modal' color='#000000ff'/>
                             
                     </View>
                     
