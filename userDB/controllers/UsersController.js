@@ -1,32 +1,41 @@
 import { Usuario } from '../models/Users';
 import DatabaseService from '../database/database';
 
-export class UsuarioController {
-  constructor() {
+export class UsuarioController 
+{
+  constructor() 
+  {
     this.listeners = [];
   }
 
-  async initialize() {
+  async initialize() 
+  {
     await DatabaseService.initialize();
   }
 
-  async obtenerUsuarios() {
-    try {
+  async obtenerUsuarios() 
+  {
+    try 
+    {
       const data = await DatabaseService.getAll();
 
       return data.map(u => new Usuario(
         u.id,
         u.nombre,
-        u.fecha_creacion
+        u.fecha_creacion 
       ));
-    } catch (error) {
+    } 
+    catch (error) 
+    {
       console.error(' Error al obtener usuarios:', error);
       throw new Error('No se pudieron cargar los usuarios');
     }
   }
 
-  async crearUsuario(nombre) {
-    try {
+  async crearUsuario(nombre) 
+  {
+    try 
+    {
       // 1. Validar datos
       Usuario.validar(nombre);
 
@@ -42,21 +51,64 @@ export class UsuarioController {
         nuevoUsuario.nombre,
         nuevoUsuario.fecha_creacion
       );
-    } catch (error) {
+    } 
+    catch (error) 
+    {
       console.error('Error al crear usuario:', error);
       throw error;
     }
   }
 
-  addListener(callback) {
+//Actualizar
+  async actualizarUsuario(id, NewNombre)
+  {
+    try 
+    {
+  
+      Usuario.validar(NewNombre);
+
+ 
+      await DatabaseService.update(id, NewNombre.trim());
+
+  
+      this.notifyListeners();
+    } 
+    catch (error) 
+    {
+      console.error('Error al actualizar usuario:', error);
+      throw new Error('No se pudo actualizar el usuario');
+    }
+  }
+
+  // Eliminar
+  async eliminarUsuario(id)
+  {
+    try 
+    {
+      await DatabaseService.delete(id);
+
+      this.notifyListeners();
+    } 
+    catch (error) 
+    {
+      console.error('Error al eliminar usuario:', error);
+      throw new Error('No se pudo eliminar el usuario');
+    }
+  }
+
+  addListener(callback) 
+  {
     this.listeners.push(callback);
   }
 
-  removeListener(callback) {
+  removeListener(callback) 
+  {
     this.listeners = this.listeners.filter(l => l !== callback);
   }
 
-  notifyListeners() {
+  notifyListeners() 
+  {
     this.listeners.forEach(callback => callback && callback());
   }
+
 }
